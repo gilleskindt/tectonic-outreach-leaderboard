@@ -1,7 +1,11 @@
 # Tectonic outreach leaderboard
 
-Public leaderboard with aggregate outreach counts, identified by Tect email. Source: the private Tectonic 2026 Startup LinkedIn Outreach Log, tab `Outreach log` (gid 1578630869).
+The website reads aggregate outreach totals directly from Google Sheets every 30 seconds through Google Visualization. No Codex automation, credentials or build is needed for outreach count changes. Google may briefly cache responses; the page shows the latest successful read and reports connection failures.
 
-The Codex scheduled sync updates `data.json` every 15 minutes from the connected Google Sheets and Slack accounts. Raw recipient details, message bodies and conversation links are never published. Hosting uses GitHub Pages from `main`, repository root. The browser checks for refreshed data every minute.
+Source: https://docs.google.com/spreadsheets/d/16BelYduZSjXx8Ng0HS3Pmr11pYQ_c2LpXJ1CWCJJ3QI/edit?gid=1578630869
 
-Count one row for each confirmed send: `Verified sent`, variants starting with `Verified sent`, and `Sent; verified in LinkedIn conversation`. Exclude deleted, skipped, unsent and unverified rows. Normalize sender email with trim + lowercase and combine name variations. Include all Slack members with an `@tectonicconf.eu` email, plus any sender in the sheet. Equal totals receive equal competition ranks. Zero means no confirmed outreach in this particular log.
+The source must remain viewable by anyone with its link for this direct connection. Requests select only sender email and confirmed-send counts, grouped in Google Sheets. Include Verified sent status variants and Sent; verified in LinkedIn conversation; exclude deleted, skipped and unsent messages. Sender emails are normalized in the browser.
+
+The 29-member Slack roster in data.json provides names and zero-count members. Count fields in that file are unused: live counts always come from the sheet. New sender emails in the sheet appear automatically; Slack roster changes can be made in data.json.
+
+Design follows tectonicconf.eu: Anybody type, navy background, blue and aqua accents, official logo. The viewport is fixed; only the member list scrolls. Hosting: GitHub Pages, main branch, root directory.
